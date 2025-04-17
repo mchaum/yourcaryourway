@@ -28,9 +28,13 @@ Back-end accessible à l'adresse :
 
 ### Front-end (Angular)
 
-cd front
-npm install
-npm start
+- cd front
+- npm install
+- npm start
 
 Front-end accessible à l'adresse :
 → http://localhost:4200
+
+## Mettre en place la structure de données de toute l’application
+
+Le script pour mettre en place la structure de données de tout l'application se trouve dans le dossier "script".
