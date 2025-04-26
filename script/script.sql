@@ -1,6 +1,6 @@
 CREATE TABLE USERS (
     id INT PRIMARY KEY AUTO_INCREMENT,
-    lasttname VARCHAR(50) NOT NULL,
+    lastname VARCHAR(50) NOT NULL,
     firstname VARCHAR(50) NOT NULL,
     birthdate DATE NOT NULL,
     user_address TEXT NOT NULL,
@@ -27,7 +27,7 @@ CREATE TABLE AGENCIES (
 
 CREATE TABLE CARS (
     id INT PRIMARY KEY AUTO_INCREMENT,
-    category VARCHAR(50) NOT NULL,
+    acriss_code VARCHAR(4),
     disponibility BOOLEAN NOT NULL,
     agency_id INT NOT NULL,
     price_base DECIMAL(10,2) NOT NULL,
@@ -60,4 +60,13 @@ CREATE TABLE MESSAGES (
     content TEXT NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (user_id) REFERENCES USERS(id) ON DELETE CASCADE
+);
+
+CREATE TABLE CANCELLATIONS (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    reservation_id INT NOT NULL,
+    cancelled_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    refund_amount DECIMAL(10,2) NOT NULL,
+    refund_type ENUM('total', 'partiel') NOT NULL,
+    FOREIGN KEY (reservation_id) REFERENCES RESERVATIONS(id) ON DELETE CASCADE
 );
